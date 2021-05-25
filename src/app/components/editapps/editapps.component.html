@@ -1,0 +1,235 @@
+<div class="modal-header">
+    <h1 class="modal-title">{{Title}}</h1>
+    <button class="btn-close" aria-label="close" type="button" (click)="onClose()">    </button>
+</div>
+<div class="modal-body">
+    <div fxLayout="row" *ngIf = "templAux != 2">
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Escoger capacidad para editar sus aplicaciones</mat-label>
+            <mat-select [(value)]="idIn">
+                <mat-option value ="0"> Ninguna.</mat-option>
+                <div *ngFor = "let secsubdo of secsubdos">
+                    <mat-option value="{{secsubdo.id}}">{{secsubdo.Nivel_name}}</mat-option>
+                </div>
+            </mat-select> 
+            <mat-hint>Seleccione una Capacidad.</mat-hint>   
+        </mat-form-field>
+        <div>
+            <button (click)="onButton()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">edit_note</mat-icon> </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf = "templAux == 1">
+        <div>
+            <h3>Aplicaciones actuales</h3>
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Escoger aplicación</mat-label>
+                        <mat-select [(value)]="rela.idAdd">
+                            <div *ngFor = "let allapli of allaplis">
+                                <mat-option value="{{allapli.id}}">{{allapli.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione una aplicación existente para relacionarla.</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onRela()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon> </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Relación a eliminar</mat-label>
+                        <mat-select [(value)]="rela.idDelRela">
+                            <div *ngFor = "let apli of aplis">
+                                <mat-option value="{{apli.id}}">{{apli.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione la relacion que desea eliminar</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onDeleteRela()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon> </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <form class="example-form">
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxLayout="column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Agregar nueva aplicación</mat-label>
+                            <input matInput placeholder="Ex. Leasing" name="name" [(ngModel)]="rela.name" maxlength="50">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Link nueva aplicación</mat-label>
+                            <input type="url" pattern=".+\.com" matInput placeholder="Ex. AFC" name="name" [(ngModel)]="rela.link" >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button type= "submit" class="btn btn-secondary btn-sm" (click)="onSave()">Agregar</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Aplicación a eliminar</mat-label>
+                        <mat-select [(value)]="rela.idDel">
+                            <div *ngFor = "let allapli of allaplis">
+                                <mat-option value="{{allapli.id}}">{{allapli.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione la capacidad que desea eliminar</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onDelete()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon> </button>
+                </div>
+            </div>
+            
+        </div>
+        
+
+
+        <div>
+            <h3>Aplicaciones objetivo</h3>
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Escoger aplicación</mat-label>
+                        <mat-select [(value)]="rela.idAddo">
+                            <div *ngFor = "let allaplio of allapliso">
+                                <mat-option value="{{allaplio.id}}">{{allaplio.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione una aplicación objetivo existente para relacionarla.</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onRelao()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon> </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Relación a eliminar</mat-label>
+                        <mat-select [(value)]="rela.idDelRelao">
+                            <div *ngFor = "let aplio of apliso">
+                                <mat-option value="{{aplio.id}}">{{aplio.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione la relacion que desea eliminar</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onDeleteRelao()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon> </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <form class="example-form">
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxLayout="column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Agregar nueva aplicación objetivo</mat-label>
+                            <input matInput placeholder="Ex. Leasing" name="name" [(ngModel)]="rela.nameo" maxlength="50">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Link nueva aplicación objetivo</mat-label>
+                            <input type="url" pattern=".+\.com" matInput placeholder="Ex. AFC" name="name" [(ngModel)]="rela.linko" >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary btn-sm" (click)="onSaveo()">Agregar</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Aplicación objetivo a eliminar</mat-label>
+                        <mat-select [(value)]="rela.idDelo">
+                            <div *ngFor = "let allaplio of allapliso">
+                                <mat-option value="{{allaplio.id}}">{{allaplio.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione la capacidad que desea eliminar</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onDeleteo()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon> </button>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    <div *ngIf = "templAux == 2" >
+        <h3>Aplicaciones actuales</h3>
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                <div>
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Escoger aplicaciones</mat-label>
+                        <mat-select [(value)]="idmasivo">
+                            <div *ngFor = "let apli of aplis">
+                                <mat-option value="{{apli.id}}">{{apli.apli_name}}</mat-option>
+                            </div>
+                        </mat-select> 
+                        <mat-hint>Seleccione una aplicación existente para moverla.</mat-hint>   
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button (click)="onMasive()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon> </button>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="space-around center" >
+                <div><button (click)="onSee()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">visibility</mat-icon> </button></div>
+                <div>{{namesmove}}</div>
+            </div>
+            <div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+                    <div>
+                        <mat-form-field appearance="fill" class="example-full-width">
+                            <mat-label>Escoger Capacidad a agregar</mat-label>
+                            <mat-select [(value)]="idcapa">
+                                <div *ngFor = "let secsubdo of secsubdos">
+                                    <mat-option value="{{secsubdo.id}}">{{secsubdo.Nivel_name}}</mat-option>
+                                </div>
+                            </mat-select> 
+                            <mat-hint>Seleccione el servicio donde desea mover.</mat-hint>   
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button (click)="onMasive()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon> </button>
+                    </div>
+                    
+                </div>
+            </div>
+    </div>
+</div>
+<div class="modal-footer" *ngIf = "templAux == 1">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onChange()">Mover varias aplicaciones</button>
+</div>
+<div class="modal-footer" *ngIf = "templAux == 2">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onMove()">Mover</button>
+</div>

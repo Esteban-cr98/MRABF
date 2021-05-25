@@ -1,0 +1,25 @@
+<div class="principal" fxLayout="column" fxLayoutAlign="start center">
+    <br>
+    <div>
+        <h1> Modelo de referencia de arquitectura aplicativa</h1>
+        <hr>
+    </div>
+    <br>
+    <div class="col-md-4 " *ngFor = "let Servicio of Servicios" fxLayoutAlign="center center">
+        <div class="col-md-11" >
+            <a href="/subdo/{{Servicio.id}}" class="col-md-11">{{Servicio.Serv_name}}</a>
+            <hr>
+        </div>
+        <br>
+        <br>               
+    </div>
+    
+    <div class="col-md-4" fxLayoutAlign="center center">
+        <a href="/tree">Ir al diagrama  <mat-icon aria-hidden="false" aria-label="return icon" class ="arrow">redo</mat-icon></a>
+        
+    </div>
+
+    <div class="col-md-4" fxLayoutAlign="end end">
+        <img src="../../../assets/icon/editar.png" (click)="onEdit()">
+    </div>
+</div>

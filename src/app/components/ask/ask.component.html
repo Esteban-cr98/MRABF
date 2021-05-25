@@ -1,0 +1,61 @@
+<h2>Agregue una capacidad o una aplicación al subdominio</h2>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+        <h3>Agregar capacidad</h3>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Agregar nueva capacidad</mat-label>
+                    <input matInput placeholder="Ex. Leasing" name="name" [(ngModel)]="nombres.nameC" maxlength="50">
+                </mat-form-field>
+            </div>
+            <div>
+                <button class="btn btn-secondary btn-sm" (click)="onSaveC()">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <div>
+        <h3> Agregar aplicación actual</h3>
+        <div fxLayout="row" fxLayoutAlign="space-around center" class="example-form">
+            <div>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Escoger aplicación</mat-label>
+                    <mat-select [(value)]="nombres.idAdd">
+                        <div *ngFor = "let allapli of allaplis">
+                            <mat-option value="{{allapli.id}}">{{allapli.apli_name}}</mat-option>
+                        </div>
+                    </mat-select> 
+                    <mat-hint>Seleccione una aplicación existente para relacionarla.</mat-hint>   
+                </mat-form-field>
+            </div>
+            <div>
+                <button (click)="onRela()" class="btn btn-secondary btn-sm"> <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon> </button>
+            </div>
+        </div>
+
+        <hr>
+
+        <form class="example-form">
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxLayout="column">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Agregar nueva aplicación</mat-label>
+                        <input matInput placeholder="Ex. Leasing" name="name" [(ngModel)]="nombres.nameA" maxlength="50">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Link nueva aplicación</mat-label>
+                        <input type="url" pattern=".+\.com" matInput placeholder="Ex. AFC" name="nameA" [(ngModel)]="nombres.link" >
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button type= "submit" class="btn btn-secondary btn-sm" (click)="onSaveA()">Agregar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

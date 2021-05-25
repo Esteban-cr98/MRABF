@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+img {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 50px;
+    
+}
+img:hover {
+    height: 53px;    
+}
+
+
+.principal{
+    background-image: url('/assets/img/Muestra1.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.secundario{
+    background-image: url('/assets/img/Muestra2.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    overflow-y: scroll;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+.terceario{
+    background-image: url('/assets/img/Muestra3.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    overflow-y: scroll;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+.cuaternario{
+    background-image: url('/assets/img/Muestra4.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    /*overflow-y: scroll;*/
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.completo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import '~@circlon/angular-tree-component/css/angular-tree-component.css';
+

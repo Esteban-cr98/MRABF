@@ -1,0 +1,40 @@
+<div class="terceario" fxLayout="column" fxLayoutAlign="center start">
+    <br>
+    <div>
+        <h1>&nbsp; &nbsp; <a href="/subdo/{{idaux2}}"><mat-icon aria-hidden="false" aria-label="return icon" class ="arrow">arrow_back</mat-icon></a> {{Title}}</h1>
+        <hr>
+    </div>
+    <br>
+    <div class="col-md-5" *ngFor = "let secsubdo of secsubdos" fxLayoutAlign="center center">
+        <div class="col-md-9">
+            <span><mat-icon aria-hidden="false" aria-label="return icon" (click)="onExpand(secsubdo.id)">{{icono}}</mat-icon>{{secsubdo.Nivel_name}}</span>
+            <div *ngIf = "templAux == secsubdo.id" [@enterAnimation]>
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                    <div>
+                        <h2>Modelo actual &nbsp; &nbsp;&nbsp; &nbsp;</h2>
+                        <div class="col-md-15" *ngFor = "let apli of aplis">
+                            <a href="{{apli.link}}" target="_blank">{{apli.apli_name}}</a>
+                            <hr>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Modelo objetivo &nbsp; &nbsp;</h2>
+                        <div class="col-md-15" *ngFor = "let aplio of apliso">
+                            <a href="{{aplio.link}}" target="_blank">{{aplio.apli_name}}</a>
+                            <hr>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <br>
+        <br>               
+    </div>
+    <div class="col-md-4" fxLayoutAlign="end end">
+        <img src="../../../assets/icon/editar.png" (click)="onEdit()">
+    </div>
+</div>
+
+

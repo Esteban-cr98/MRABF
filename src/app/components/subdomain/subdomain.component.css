@@ -1,0 +1,77 @@
+h1{
+    font-family: Helvetica 15%;
+    font-size: 32pt;
+    color: black;
+    text-align: start;
+}
+ 
+
+  span {
+  font-size: 19pt;
+  }
+
+  a{
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+    font-size: 19pt;
+    color: black;
+  }
+
+  
+  a:link {
+    color: black;
+  }
+  
+  a:visited {
+    color: black;
+  }
+  
+  a:focus {
+    border-bottom: 1px solid;
+  }
+  
+  a:hover {
+    border-radius: 5px;
+    font-size: 24pt;
+    
+  }
+  
+  a:active {
+    color: rgb(86,134,136);
+  }
+
+  .apli{
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+    font-size: 14pt;
+    color: black;
+  }
+  .apli:hover {
+    border-radius: 5px;
+    font-size: 18pt; 
+  }
+  .apli:link {
+    color: black;
+  }
+  
+  .apli:visited {
+    color: black;
+  }
+  
+  .apli:focus {
+    border-bottom: 1px solid;
+  }
+
+  .apli:active {
+    color: rgb(86,134,136);
+  }
+
+  .arrow{
+    font-size: 25px;
+  }
+
+  .arrow:hover{
+    font-size: 30px;
+  }

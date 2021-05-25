@@ -1,0 +1,49 @@
+<div class="secundario" fxLayout="column" fxLayoutAlign="center end">
+    <br>
+    <div>
+        <h1><a href="/Services"><mat-icon aria-hidden="false" aria-label="return icon" class ="arrow">arrow_back</mat-icon></a> {{Title}} &nbsp; &nbsp;&nbsp; &nbsp;</h1>
+        <hr>
+    </div>
+    
+    <div class="col-md-4" *ngFor = "let aux of auxAll" fxLayoutAlign="center center" >
+        <div *ngIf = "aux.mode == 0" class="col-md-11">
+            <a href="/sec_subdo/{{auxid}}/{{aux.id}}">{{aux.name}}</a>
+            <hr>
+        </div>
+
+        <div *ngIf = "aux.mode == 1" class="col-md-11">
+            <span><mat-icon aria-hidden="false" aria-label="return icon" (click)="onExpand(aux.id)">{{icono}}</mat-icon>{{aux.name}}</span>
+            <div *ngIf = "templAux == aux.id" [@enterAnimation]>
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                    <div>
+                        <h2>Modelo actual &nbsp; &nbsp;&nbsp; &nbsp;</h2>
+                        <div class="col-md-15" *ngFor = "let apli of aplis">
+                            <a class="apli" href="{{apli.link}}" target="_blank">{{apli.apli_name}}</a>
+                            <hr>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Modelo objetivo &nbsp; &nbsp;</h2>
+                        <div class="col-md-15" *ngFor = "let aplio of apliso">
+                            <a href="{{aplio.link}}" target="_blank">{{aplio.apli_name}}</a>
+                            <hr>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            
+        </div>
+     
+    
+    </div>
+
+
+
+
+
+    <div class="col-md-4" fxLayoutAlign="end end">
+        <img src="../../../assets/icon/editar.png" (click)="onEdit()">
+    </div>
+</div>

@@ -1,0 +1,60 @@
+h1{
+  font-family: Helvetica 15%;
+  font-size: 30pt;
+  color: black;
+}
+
+h2{
+  font-family: Helvetica 15%;
+  font-size: 23pt;
+  color: black;
+}
+
+p{
+  font-family: Helvetica 15%;
+  font-size: 15pt;
+  color: black;
+}
+
+
+ 
+
+a{
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+  font-size: 30pt;
+  color: black;
+}
+  
+a:link {
+  color: black;
+}
+  
+a:visited {
+  color: black;
+}
+  
+a:focus {
+  border-bottom: 1px solid;
+}
+
+a:hover {
+  border-radius: 5px;
+  font-size: 35pt;
+  
+}
+
+a:active {
+  color: rgb(86,134,136);
+}
+
+.div-tree {
+  height: 100%;
+  width: 60%;
+}
+
+.div-tree2 {
+  height: 100%;
+  width: 100%;
+}
